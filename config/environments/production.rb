@@ -109,4 +109,9 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+# Ajouter manuellement par AR
+  # config.action_mailer.default_url_options = { host: 'https://tie-my-rent.herokuapp.com', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'https://tie-my-rent.herokuapp.com'}
+
 end
