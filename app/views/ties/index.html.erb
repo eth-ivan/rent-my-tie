@@ -4,9 +4,13 @@
 
 <div class="container">
   <div class="row">
+
+    <% @ties_to_rent.each do |tie| %>
+
     <div class="col-sm-3">
       <div class="card-trip">
-        <img src="https://www.loding.fr/che/1664-big_default/pure-silk-sky-blue-black-repp-tie.jpg" />
+        <%= cl_image_tag("ties/pure-silk-sky-blue-black-repp-tie_hsq3b1", width: 400, height: 300, crop: :fill) %>
+        <!-- <img src="https://res.cloudinary.com/dor6vw0ll/image/upload/v1614120461/ties/tie-in-silk-twill_1_izodvv.jpg/> -->
         <div class="card-trip-infos">
           <div>
             <h2>Title here</h2>
@@ -16,7 +20,10 @@
           <img src="https://avatars.githubusercontent.com/u/69241713?v=4" class="card-trip-user avatar-bordered" />
         </div>
       </div>
-    </div>
+
+
+    <% end %>
+
   </div>
 </div>
 
