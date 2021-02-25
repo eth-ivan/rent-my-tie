@@ -13,7 +13,7 @@
 
   <body>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <%= link_to "#", class: "navbar-brand" do %>
+      <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "logo-tie.png" %>
       <% end %>
 
@@ -26,7 +26,7 @@
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
             <li class="nav-item active">
-              <%= link_to "Home", "#", class: "nav-link" %>
+              <%= link_to "Home", root_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to "Messages", "#", class: "nav-link" %>
@@ -47,11 +47,28 @@
         </ul>
       </div>
     </div>
+    <div>
 
-    <%= yield %>
+      <%= yield %>
 
-    <!-- added by ARO -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <!-- added by ARO -->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+    </div>
+
+    <div class="footer mt-5">
+      <div class="footer-links">
+        <a href="https://github.com/eth-ivan/rent-my-tie"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        The best site to rent a tie, made with <i class="fas fa-heart"></i> at Le Wagon
+      </div>
+    </div>
+
   </body>
 </html>
