@@ -8,11 +8,11 @@ class TiesController < ApplicationController
 
   def create
     @tie = Tie.new(tie_params)
-    @tie.user_id = 1 # temporary
+    @tie.user_id = 1 # temporary, to be able to save the tie
     if @tie.save
       redirect_to @tie
     else
-      render :new # il faut render pour afficher le message d'erreur
+      render :new # render method is necessary so that simple form displays error messages
     end
   end
 
