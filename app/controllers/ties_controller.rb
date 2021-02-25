@@ -8,7 +8,7 @@ class TiesController < ApplicationController
 
   def create
     @tie = Tie.new(tie_params)
-    @tie.user_id = 1
+    @tie.user_id = 1 # temporary
     if @tie.save
       redirect_to @tie
     else
