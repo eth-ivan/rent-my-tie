@@ -1,6 +1,6 @@
 <%= simple_form_for(@tie) do |f| %>
   <%= f.input :description %>
   <%= f.input :price_per_day %>
-  <%= f.input :picture, as: :file %>
+  <%= f.input :picture, as: :file, required: true %>
   <%= f.button :submit, class: "btn btn-primary mb" %>
 <% end %>
