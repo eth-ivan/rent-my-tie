@@ -5,39 +5,52 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
 
 puts "Cleaning databases..."
 Tie.destroy_all
 User.destroy_all
 
-puts "Creating users..."
+# puts "Creating users..."
 
-user_1 = { password: "123456", email: "ismael@email.com", profile_image: "user_image/Isamael_ud10oe"}
-user_2 = { password: "123456", email: "ivan@email.com", profile_image: "user_image/Ivan_rqmj2o"}
-user_3 = { password: "123456", email: "antoine@email.com", profile_image: "user_image/Antoine_q198jo"}
+# file_u1 = URI.open('https://avatars.githubusercontent.com/u/36639655?v=4')
+user_1 = User.new(password: "123456", email: "cataline@email.com")
+# user_1.profile_image.attach(io: file_u1, filename: 'cataline.png', content_type: 'image/png')
+user_1.save
 
-[ user_1, user_2, user_3].each do |attributes|
-  user = User.create!(attributes)
-  puts "Created #{user.id}"
+# file_u2 = URI.open('https://avatars.githubusercontent.com/u/66406196?v=4')
+user_2 = User.new(password: "123456", email: "emmanuel@email.com")
+# user_2.profile_image.attach(io: file_u2, filename: 'emmanuel.png', content_type: 'image/png')
+user_2.save
 
-end
-puts "user Finished!"
+# file_u3 = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579007136/c4t3cgynridhyuqvfqwr.jpg')
+user_3 = User.new(password: "123456", email: "thibault@email.com")
+# user_3.profile_image.attach(io: file_u3, filename: 'thiebault.png', content_type: 'image/png')
+user_3.save
+# puts "seed in user db finished!"
 
 
 puts "Creating ties..."
 
-tie_1 = { user_id: User.first.id, description: "sea  blue stripped tie", price_per_day: 9.99, picture: "ties/pure-silk-sky-blue-black-repp-tie_hsq3b1"}
-tie_2 = { user_id: User.first.id, description: "sky blue tie", price_per_day: 5.99, picture: "ties/tie-in-silk-twill_1_izodvv"}
-tie_3 = { user_id: User.first.id+1, description: "yellow pee tie", price_per_day: 6.99, picture: "ties/tie-in-silk-twill_2_u1iz3j"}
-tie_4 = { user_id: User.first.id+2, description: "black tie", price_per_day: 2.99, picture: "ties/pure-silk-skinny-tie_cc5fp9"}
-tie_5 = { user_id: User.first.id+1, description: "tomato red tie", price_per_day: 1.99, picture: "ties/pure-silk-skinny-tie_2_ufiqcn"}
-tie_6 = { user_id: User.first.id, description: "steel grey tie", price_per_day: 2.99, picture: "ties/pure-silk-skinny-tie_1_b0v71h"}
-tie_7 = { user_id: User.first.id+2, description: "I jut murder my boss red tie", price_per_day: 3.99, picture: "ties/tie-in-silk-twill_t6uoek"}
+file_t1 = URI.open('https://www.loding.fr/che/994-home_default/pure-silk-skinny-tie.jpg')
+tie_1 = Tie.new(user_id: User.first.id, description: "The Trump tie", price_per_day: 9.99)
+tie_1.picture.attach(io: file_t1, filename: 'red_tomato.jpg', content_type: 'image/jpg')
+tie_1.save
 
-[ tie_1, tie_2, tie_3, tie_4, tie_5, tie_6, tie_7].each do |attributes|
-  tie = Tie.create!(attributes)
-  puts "Created #{tie.id}"
+file_t2 = URI.open('https://www.loding.fr/che/990-home_default/pure-silk-skinny-tie.jpg')
+tie_2 = Tie.new(user_id: User.first.id+1, description: "no charactere grey tie", price_per_day: 9.99)
+tie_2.picture.attach(io: file_t2, filename: 'steal_grey.jpg', content_type: 'image/jpg')
+tie_2.save
 
-end
-puts "tie Finished!"
+file_t3 = URI.open('https://www.loding.fr/che/993-home_default/pure-silk-skinny-tie.jpg')
+tie_3 = Tie.new(user_id: User.first.id+1, description: "killer tie", price_per_day: 9.99)
+tie_3.picture.attach(io: file_t3, filename: 'black.jpg', content_type: 'image/jpg')
+tie_3.save
+
+file_t4 = URI.open('https://www.loding.fr/che/1081-home_default/tie-in-silk-twill.jpg')
+tie_4 = Tie.new(user_id: User.first.id+2, description: "MY wife cheeted on me tie", price_per_day: 9.99)
+tie_4.picture.attach(io: file_t4, filename: 'yellow.jpg', content_type: 'image/jpg')
+tie_4.save
+
+puts "seed in ties db finished!"
 
