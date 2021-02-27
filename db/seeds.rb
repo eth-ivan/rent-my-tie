@@ -11,23 +11,23 @@ puts "Cleaning databases..."
 Tie.destroy_all
 User.destroy_all
 
-# puts "Creating users..."
+puts "Creating users..."
 
-# file_u1 = URI.open('https://avatars.githubusercontent.com/u/36639655?v=4')
+file_u1 = URI.open('https://avatars.githubusercontent.com/u/36639655?v=4')
 user_1 = User.new(password: "123456", email: "cataline@email.com")
-# user_1.profile_image.attach(io: file_u1, filename: 'cataline.png', content_type: 'image/png')
+user_1.profile_image.attach(io: file_u1, filename: 'cataline', content_type: 'image')
 user_1.save
 
-# file_u2 = URI.open('https://avatars.githubusercontent.com/u/66406196?v=4')
+file_u2 = URI.open('https://avatars.githubusercontent.com/u/66406196?v=4')
 user_2 = User.new(password: "123456", email: "emmanuel@email.com")
-# user_2.profile_image.attach(io: file_u2, filename: 'emmanuel.png', content_type: 'image/png')
+user_2.profile_image.attach(io: file_u2, filename: 'emmanuel', content_type: 'image')
 user_2.save
 
-# file_u3 = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579007136/c4t3cgynridhyuqvfqwr.jpg')
+file_u3 = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579007136/c4t3cgynridhyuqvfqwr.jpg')
 user_3 = User.new(password: "123456", email: "thibault@email.com")
-# user_3.profile_image.attach(io: file_u3, filename: 'thiebault.png', content_type: 'image/png')
+user_3.profile_image.attach(io: file_u3, filename: 'thiebault', content_type: 'image')
 user_3.save
-# puts "seed in user db finished!"
+puts "seed in user db finished!"
 
 
 puts "Creating ties..."
