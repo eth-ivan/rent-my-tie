@@ -8,6 +8,7 @@ class Tie < ApplicationRecord
   validates :description, presence: true
   validates :picture, presence: true
   validates :price_per_day, presence: true
+  validates :name, presence: :true
 
   # associations
 
