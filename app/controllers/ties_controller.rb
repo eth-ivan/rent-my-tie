@@ -1,5 +1,11 @@
 class TiesController < ApplicationController
   def index
+    if params[:query]
+      query = params[:query]
+      @ties = Tie.where("name LIKE ?", "%#{query}%")
+    else
+      @ties = Tie.all
+    end
   end
 
   def new
