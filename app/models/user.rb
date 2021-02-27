@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # associations
-  has_many :ties
+  has_many :ties, dependent: :destroy
   has_one_attached :picture
 end
