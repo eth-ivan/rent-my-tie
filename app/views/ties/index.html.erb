@@ -4,7 +4,7 @@
   <h1>Ties Presentation</h1>
   <div class="row">
 
-    <% @ties_to_rent.each do |tie| %>
+    <% @ties.each do |tie| %>
     <div class="col-sm-3">
       <div class="card-trip">
         <%= cl_image_tag(tie.picture.key, width: 400, height: 300, crop: :fill ) %>

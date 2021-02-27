@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   # associations
   has_many :ties
+  has_one_attached :picture
 end

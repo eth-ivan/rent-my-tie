@@ -1,6 +1,11 @@
 class TiesController < ApplicationController
   def index
-    @ties_to_rent=Tie.all
+    if params[:query]
+      query = params[:query]
+      @ties = Tie.where("name LIKE ?", "%#{query}%")
+    else
+      @ties = Tie.all
+    end
   end
 
   def new
