@@ -2,7 +2,12 @@
   <div class="container">
     <h1>The first platform where you can rent your tie !</h1>
     <p>Change your life and rent the tie you like.</p>
-    <a class="btn btn-danger" href="#">Rent now</a>
+    <div class="search-bar">
+      <form class="form-inline my-2 my-lg-0" action="/ties">
+        <input class="form-control mr-sm-2" type="search" name="query" value="<%= params[:query] %>" placeholder="Search a tie" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0 text-white" type="submit">Submit</button>
+      </form>
+    </div>
   </div>
 </div>
 
