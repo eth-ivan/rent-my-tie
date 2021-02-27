@@ -18,7 +18,11 @@
               <%= link_to "New tie", new_ty_path, class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
-              <%= cl_image_tag current_user.picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% if current_user.picture? %>
+                <%= "logged as #{current_user.email}" %>
+              <% else  %>
+                <%= cl_image_tag current_user.picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
                 <%= link_to "Another action", "#", class: "dropdown-item" %>
