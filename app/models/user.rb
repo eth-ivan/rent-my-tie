@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   # associations
   has_many :ties, dependent: :destroy
-  has_one_attached :picture
+  has_one_attached :profile_image
 end
