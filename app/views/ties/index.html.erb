@@ -7,8 +7,9 @@
     <% @ties.each do |tie| %>
     <div class="col-sm-3">
       <div class="card-trip">
-        <%= cl_image_tag(tie.picture.key, width: 400, height: 300, crop: :fill ) %>
-        <!-- <img src="https://res.cloudinary.com/dor6vw0ll/image/upload/v1614120461/ties/tie-in-silk-twill_1_izodvv.jpg/> -->
+        <%= link_to tie do%>
+          <%= cl_image_tag(tie.picture.key, width: 400, height: 300, crop: :fill ) %>
+        <%end%>
         <div class="card-trip-infos">
           <div>
             <h2><%=tie.name%></h2>

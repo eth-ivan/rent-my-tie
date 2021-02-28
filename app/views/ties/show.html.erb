@@ -1,1 +1,15 @@
-show.html.erb
+<div class="container pt-5">
+  <div>
+  <h2><%= @tie.name %></h2>
+    <div class="card-tie">
+      <%= cl_image_tag(@tie.picture.key, width: 400, height: 300, crop: :fill ) %>
+    </div>
+    <div class=row>
+      <div class="card-tie-infos">
+      <p><%= @tie.description %></p>
+    </div>
+    <h2 class="card-tie-pricing"><%= @tie.price_per_day %>$/day</h2>
+  </div>
+  <%= link_to 'Back', :back %>
+</div>
+
