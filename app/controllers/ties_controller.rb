@@ -14,7 +14,7 @@ class TiesController < ApplicationController
 
   def create
     @tie = Tie.new(tie_params)
-    @tie.user_id = 1 # temporary, to be able to save the tie
+    @tie.user = current_user # temporary, to be able to save the tie
     if @tie.save
       redirect_to @tie
     else
@@ -25,6 +25,6 @@ class TiesController < ApplicationController
   private
 
   def tie_params
-    params.require(:tie).permit(:description, :price_per_day, :picture)
+    params.require(:tie).permit(:name, :description, :price_per_day, :picture)
   end
 end
