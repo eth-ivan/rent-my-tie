@@ -15,6 +15,7 @@ class TiesController < ApplicationController
   def create
     @tie = Tie.new(tie_params)
     @tie.user_id = 1 # temporary, to be able to save the tie
+    raise
     if @tie.save
       redirect_to @tie
     else
