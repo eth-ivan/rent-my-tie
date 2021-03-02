@@ -1,8 +1,8 @@
 class TiesController < ApplicationController
   def index
     if params[:query]
-      query = params[:query]
-      @ties = Tie.where("name LIKE ?", "%#{query}%")
+      sql_query = "name @@ :query OR description @@ :query"
+      @ties = Tie.where(sql_query, query: "%#{params[:query]}%")
     else
       @ties = Tie.all
     end
