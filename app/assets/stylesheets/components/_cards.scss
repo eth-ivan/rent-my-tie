@@ -25,10 +25,8 @@
   grid-gap: 16px;
 }
 
-.cards-tie{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+.cards{
+
 }
 
 // Smallest device
@@ -65,3 +63,50 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+  margin-bottom: 200;
+}
+
+.card-trip > img {
+  height: 400px;
+  // width: 100 px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+
+}
+
+.card-trip p {
+  font-size: 14px;
+  opacity: .7;
+}
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-pricing {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  align-items: flex-end;
+  position: right;
+}
+

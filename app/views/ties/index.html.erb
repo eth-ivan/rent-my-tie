@@ -8,14 +8,14 @@
     <div class="col-sm-3">
       <div class="card-trip">
         <%= link_to tie do%>
-          <%= cl_image_tag(tie.picture.key, width: 400, height: 300, crop: :fill ) %>
+          <%= cl_image_tag(tie.picture.key, height: 250) %>
         <%end%>
         <div class="card-trip-infos">
           <div>
-            <h2><%=tie.name%></h2>
-            <p><%= tie.description %></p>
+            <h2><%= tie.name %></h2>
+            <p><%= tie.description.truncate(15) %></p>
           </div>
-          <h2 class="card-trip-pricing"><%= tie.price_per_day %>$/day</h2>
+          <div class="card-trip-pricing"><%= tie.price_per_day %>$/day</div>
           <%= cl_image_tag tie.user.profile_image.key, class:"card-trip-user avatar-bordered" %>
         </div>
       </div>
