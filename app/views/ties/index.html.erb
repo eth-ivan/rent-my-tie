@@ -13,10 +13,13 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= tie.name %></h2>
-            <p><%= tie.description.truncate(15) %></p>
+            <p><%= tie.description.truncate(25, separator: ' ') %></p>
           </div>
-          <div class="card-trip-pricing"><%= tie.price_per_day %>$/day</div>
-          <%= cl_image_tag tie.user.profile_image.key, class:"card-trip-user avatar-bordered" %>
+          <h2 class="card-trip-pricing"><%= tie.price_per_day %>$/day</h2>
+
+
+           <%= cl_image_tag tie.user.profile_image.key, class:"card-trip-user avatar-bordered" %>
+
         </div>
       </div>
     </div>

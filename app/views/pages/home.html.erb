@@ -24,13 +24,13 @@
         <div class="col-sm-3">
           <div class="card-trip">
             <%= link_to tie do%>
-              <%= cl_image_tag(tie.picture.key, width: 400, height: 300, crop: :fill ) %>
+              <%= cl_image_tag(tie.picture.key, height: 250, crop: :fill ) %>
             <% end %>
             <!-- <img src="https://res.cloudinary.com/dor6vw0ll/image/upload/v1614120461/ties/tie-in-silk-twill_1_izodvv.jpg/> -->
             <div class="card-trip-infos">
               <div>
                 <h2><%=tie.name%></h2>
-                <p><%= tie.description.truncate(15) %></p>
+                <p><%= tie.description.truncate(25, separator: ' ') %></p>
               </div>
               <h2 class="card-trip-pricing"><%= tie.price_per_day %>$/day</h2>
               <%= cl_image_tag tie.user.profile_image.key, class:"card-trip-user avatar-bordered" %>
