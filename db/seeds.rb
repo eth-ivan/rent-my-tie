@@ -62,7 +62,6 @@
 # ------------------------------------------------
 puts "Cleaning databases..."
 User.destroy_all
-Tie.destroy_all
 
 puts "Creating users..."
 
