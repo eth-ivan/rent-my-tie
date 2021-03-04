@@ -95,6 +95,10 @@
 .card-trip p {
   font-size: 14px;
   opacity: .7;
+  &.big-card p {
+    padding-right: 5rem;
+    text-align: justify;
+  }
 }
 
 .card-trip .card-trip-infos {
