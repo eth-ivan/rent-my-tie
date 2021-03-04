@@ -14,9 +14,16 @@
   margin-top: 64px;
 }
 
+.input-search-width {
+  width: 375px !important;
+}
+
 @media(max-width: 768px) {
   .search-bar {
     justify-content: start;
     margin-top: 16px;
+  }
+  .input-search-width {
+    width: 225px !important;
   }
 }
