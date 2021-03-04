@@ -16,8 +16,6 @@
             <p><%= tie.description.truncate(25, separator: ' ') %></p>
           </div>
           <h2 class="card-trip-pricing"><%= tie.price_per_day %>$/day</h2>
-
-
            <%= cl_image_tag tie.user.profile_image.key, class:"card-trip-user avatar-bordered" %>
 
         </div>
