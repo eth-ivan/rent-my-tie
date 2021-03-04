@@ -4,6 +4,8 @@ class Tie < ApplicationRecord
   # active storage: cette ligne permettra de faire @cocktail.photo...
   has_one_attached :picture
 
+  has_many :bookings, dependent: :destroy
+
   # validations
   validates :description, presence: true
   validates :picture, presence: true

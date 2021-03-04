@@ -7,4 +7,5 @@ class User < ApplicationRecord
   # associations
   has_many :ties, dependent: :destroy
   has_one_attached :profile_image
+  has_many :bookings, dependent: :destroy
 end
