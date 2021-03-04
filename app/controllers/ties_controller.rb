@@ -8,6 +8,10 @@ class TiesController < ApplicationController
     end
   end
 
+  def show
+    @tie = Tie.find(params[:id])
+  end
+
   def new
     @tie = Tie.new
   end
