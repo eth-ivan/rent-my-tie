@@ -1,1 +1,17 @@
-
+<div class="container pt-5">
+  <div>
+    <div class="card-trip card-trip-show">
+      <%= cl_image_tag(@tie.picture.key) %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= @tie.name %></h2>
+          <div><%= @tie.description %></div>
+        </div>
+        <div class="card-pricing"><%= @tie.price_per_day %>$/day</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <%= link_to 'Back', :back %>
+  </div>
+</div>
