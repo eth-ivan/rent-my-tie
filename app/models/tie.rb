@@ -10,6 +10,7 @@ class Tie < ApplicationRecord
   validates :price_per_day, presence: true
   validates :name, presence: true
 
-  # associations
-
+  # geocode
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
