@@ -1,0 +1,15 @@
+<h1>Bookings#new</h1>
+<p>Find me in app/views/bookings/new.html.erb</p>
+
+<div class="container col-md-5">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h2>Booking example</h2>
+
+    <%= simple_form_for(@booking) do |f| %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+

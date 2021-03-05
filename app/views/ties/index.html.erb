@@ -5,7 +5,7 @@
   <div class="row mt-5">
 
     <% @ties.each do |tie| %>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <div class="card-trip">
         <%= link_to tie do%>
           <%= cl_image_tag(tie.picture.key, height: 250) %>
@@ -15,8 +15,10 @@
             <h2><%= tie.name %></h2>
             <p><%= tie.description.truncate(25, separator: ' ') %></p>
           </div>
-          <h2 class="card-trip-pricing"><%= tie.price_per_day %>$/day</h2>
-           <%= cl_image_tag tie.user.profile_image.key, class:"card-trip-user avatar-bordered" %>
+
+          <h2>$<%= tie.price_per_day %> /day</h2>
+
+           <%= cl_image_tag tie.user.profile_image.key, class:"card-trip-user avatar-square" %>
 
         </div>
       </div>
