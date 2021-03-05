@@ -1,4 +1,3 @@
 class Booking < ApplicationRecord
-  belongs_to :user
-  belongs_to :tie
+  belongs_to :user, :tie
 end
