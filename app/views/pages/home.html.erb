@@ -5,7 +5,7 @@
     <div class="row search-bar">
       <form class="form-inline my-2 my-lg-0 col-10" action="/ties">
         <input class="form-control col-8" type="search" name="query" value="<%= params[:query] %>" placeholder="Search a tie" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0 text-white" type="submit">Search</button>
+        <button class="btn btn-success my-2 my-sm-0 text-white" id="margin-button" type="submit">Search</button>
       </form>
 
     </div>
@@ -22,7 +22,7 @@
 
   <div class="row">
       <% @ties.each do |tie| %>
-        <div class="col-sm-4">
+        <div class="col-xs-12 col-md-6 col-lg-4">
           <div class="card-trip">
             <%= link_to tie do %>
               <%= cl_image_tag(tie.picture.key, height: 250) %>
