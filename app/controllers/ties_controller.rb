@@ -6,16 +6,6 @@ class TiesController < ApplicationController
     else
       @ties = Tie.all
     end
-    # raise
-    @markers = @ties.geocoded.map do |tie|
-      {
-        lat: tie.latitude,
-        lng: tie.longitude,
-        # render_to_string sert à construire du html depuis une partial
-        # c'est le même principe que le render dans la view, mais pour le controlleur
-        infoWindow: render_to_string(partial: "info_window", locals: { tie: tie }),
-      }
-    end
   end
 
   def show
@@ -38,6 +28,19 @@ class TiesController < ApplicationController
       redirect_to @tie
     else
       render :new # render method is necessary so that simple form displays error messages
+    end
+  end
+
+  def map
+    @ties = Tie.all
+    @markers = @ties.geocoded.map do |tie|
+      {
+        lat: tie.latitude,
+        lng: tie.longitude,
+        # render_to_string sert à construire du html depuis une partial
+        # c'est le même principe que le render dans la view, mais pour le controlleur
+        infoWindow: render_to_string(partial: "info_window", locals: { tie: tie }),
+      }
     end
   end
 
