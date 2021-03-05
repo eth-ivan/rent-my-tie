@@ -1,7 +1,7 @@
 class TiesController < ApplicationController
   def index
     if params[:query]
-      sql_query = "name @@ :query OR address @@ :query"
+      sql_query = "name @@ :query OR address @@ :query OR description @@ :query"
       @ties = Tie.where(sql_query, query: "%#{params[:query]}%")
     else
       @ties = Tie.all
@@ -20,6 +20,11 @@ class TiesController < ApplicationController
 
   def show
     @tie = Tie.find(params[:id])
+    @markers =
+      {
+        lat: @tie.latitude,
+        lng: @tie.longitude,
+      }
   end
 
   def new
