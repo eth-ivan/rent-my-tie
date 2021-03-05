@@ -1,17 +1,31 @@
-<div class="container pt-5">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_url 'ties.jpg' %>');">
+  <div class="container">
+    <h1 class="text-center"><em>"The <%= @tie.name %> tie"</em></h1>
+  </div>
+</div>
+
+<div class="container col-md-6">
+
   <div>
-    <div class="card-trip card-trip-show">
-      <%= cl_image_tag(@tie.picture.key) %>
+    <div class="card-trip card-xl">
+      <%= cl_image_tag(@tie.picture.key, height: 250) %>
       <div class="card-trip-infos">
         <div>
           <h2><%= @tie.name %></h2>
-          <div><%= @tie.description %></div>
+          <br>
+          <p><%= @tie.description %></p>
         </div>
-        <div class="card-pricing"><%= @tie.price_per_day %>$/day</div>
+        <div>
+          <%= cl_image_tag @tie.user.profile_image.key, class:"card-trip-user avatar-square" %>
+          <h2>$<%= @tie.price_per_day %> /day</h2>
+        </div>
+      </div>
+      <div class="card-date">
+        <%= render 'partial/form_new_book', booking: @booking %>
       </div>
     </div>
   </div>
   <div>
-    <%= link_to 'Back', :back %>
+    <%= link_to 'Back to all ties', :back, class: "btn btn-primary float-right"%>
   </div>
 </div>
