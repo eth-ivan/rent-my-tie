@@ -100,7 +100,7 @@ descriptions = [desc_1, desc_2, desc_3]
 images_path = File.expand_path(".", Dir.pwd) + "/app/assets/images/one_hundred_ties"
 
 Dir.glob(images_path + "/*").each do |f|
-  filename_wo_extension = File.basename(f, ".jpg")
+  filename_wo_extension = File.basename(f, ".jpeg")
   filename = File.basename(f)
   filepath = File.path(f)
   file = File.open(filepath)
