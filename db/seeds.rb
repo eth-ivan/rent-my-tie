@@ -80,6 +80,11 @@ user_3 = User.new(password: "123456", email: "thibault@email.com")
 user_3.profile_image.attach(io: file_u3, filename: "thiebault", content_type: "image")
 user_3.save!
 
+file_u4 = URI.open("https://res.cloudinary.com/ivan-perroud/image/upload/v1614866357/xhnm3f8ovqcmujt30rc1.jpg")
+user_4 = User.new(password: "123456", email: "ivan@perroud.me")
+user_4.profile_image.attach(io: file_u4, filename: "ivan", content_type: "image")
+user_4.save!
+
 puts "seed in user db finished!"
 puts "Creating ties..."
 

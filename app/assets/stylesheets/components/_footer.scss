@@ -31,3 +31,9 @@
 .footer .fa-beer {
   color: #EB8F17;
 }
+
+@media only screen and (max-width: 768px) {
+  #beer-disable-on-mobile {
+    visibility: hidden;
+  }
+}

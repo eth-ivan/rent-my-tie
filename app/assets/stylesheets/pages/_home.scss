@@ -13,6 +13,10 @@
   margin-top: 64px;
 }
 
+#margin-button {
+  margin: -2px;
+}
+
 @media(max-width: 768px) {
   .search-bar {
     justify-content: start;

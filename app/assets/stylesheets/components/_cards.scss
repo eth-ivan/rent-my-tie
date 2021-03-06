@@ -9,7 +9,7 @@
 .card-trip > img {
   margin: auto;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card-trip h2 {
@@ -50,7 +50,9 @@
   padding: 16px;
   display: flex;
   align-items: center;
-
 }
 
+.card-map {
+  padding: 16px;
+}
 
