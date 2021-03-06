@@ -46,7 +46,6 @@ require 'nokogiri'
 $i = 0
 while $i < 10  do
   $i +=1
-
   url = "https://tel.search.ch/index.fr.html?wo=lausanne&pages= #$i"
 
   html_file = open(url).read
