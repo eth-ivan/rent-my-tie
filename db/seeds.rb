@@ -40,12 +40,12 @@ puts "seed in user db finished!"
 
 puts "Creating address..."
 
-require 'open-uri'
-require 'nokogiri'
+require "open-uri"
+require "nokogiri"
 
 $i = 0
-while $i < 10  do
-  $i +=1
+while $i < 10
+  $i += 1
   url = "https://tel.search.ch/index.fr.html?wo=lausanne&pages= #$i"
 
   html_file = open(url).read
@@ -53,7 +53,7 @@ while $i < 10  do
 
   address_array = []
 
-  html_doc.search('.tel-address').each do |element|
+  html_doc.search(".tel-address").each do |element|
     address_array.push(element.text)
     address_array = address_array.uniq
   end
@@ -71,12 +71,11 @@ desc_2 = "Handmade of 78% Silk/22% Wool, this tie will suit everyone. Book it no
 desc_3 = "This Bali Repeat Stripe tie pairs beautifully with our modern-fit oxford shirt in turquoise for a story that is a sure-fire hit all year round"
 descriptions = [desc_1, desc_2, desc_3]
 
-
 # path of images (relative)
 images_path = File.expand_path(".", Dir.pwd) + "/app/assets/images/one_hundred_ties"
 
 Dir.glob(images_path + "/*").each do |f|
-  filename_wo_extension = File.basename(f, ".jpeg")
+  filename_wo_extension = File.basename(f, ".jpg")
   filename = File.basename(f)
   filepath = File.path(f)
   file = File.open(filepath)
