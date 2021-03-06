@@ -91,15 +91,16 @@ puts "Creating ties..."
 # arrays
 users = [user_1, user_2, user_3]
 prices = [6, 7, 8.5, 9.9, 12, 14.9, 16, 18, 19.9]
-desc_1 = "Super cravatte pour faire bonne impression lors de vos sorties officielles!. Cette cravate de 6 cm de large est fabriquée dans un tissu doux facile à attacher."
-desc_2 = "Les couleurs foncées ne doivent pas être systématiquement ennuyeuses. Cette cravate en est l'exemple parfait. Affichant une découpe classique, ce modèle a été réalisé de manière à lui fournir une texture et une finition lui procurant une touche originale. Fabriquée à base de tissu de polyester en relief, elle est aussi belle qu'elle est confortable à porter."
-descriptions = [desc_1, desc_2]
+desc_1 = "Very nice tie to be well dressed at home during covid! Pair with our new Cabana Stripe black men's dress shirt for a color story no one can resist."
+desc_2 = "Handmade of 78% Silk/22% Wool, this tie will suit everyone. Book it now!"
+desc_3 = "This Bali Repeat Stripe tie pairs beautifully with our modern-fit oxford shirt in turquoise for a story that is a sure-fire hit all year round"
+descriptions = [desc_1, desc_2, desc_3]
 
 # path of images (relative)
 images_path = File.expand_path(".", Dir.pwd) + "/app/assets/images/one_hundred_ties"
 
 Dir.glob(images_path + "/*").each do |f|
-  filename_wo_extension = File.basename(f, ".jpg")
+  filename_wo_extension = File.basename(f, ".jpeg")
   filename = File.basename(f)
   filepath = File.path(f)
   file = File.open(filepath)
