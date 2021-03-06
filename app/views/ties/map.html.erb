@@ -1,7 +1,12 @@
-<div class="container pt-4">
-  <h1 class="mb-4">Can you find a tie near you?</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_url "map.jpg" %>');">
+  <div class="container">
+    <h1><em>Can you find a tie near you?</em></h1>
+  </div>
+</div>
+
+<div class="container">
     <div id="map"
-      style="width: 100%; height: calc(100vh - 15rem); position: sticky;"
+      style="width: 100%; height: calc(100vh - 15rem); position: relative; box-shadow: 0 0 15px rgba(0,0,0,0.2); top: -80px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
