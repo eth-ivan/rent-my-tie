@@ -42,26 +42,21 @@ puts "Creating address..."
 
 require "open-uri"
 require "nokogiri"
+address_array = []
 
-$i = 0
-while $i < 10
-  $i += 1
-  url = "https://tel.search.ch/index.fr.html?wo=lausanne&pages= #$i"
-
+for i in 0..15
+  url = "https://tel.search.ch/index.fr.html?wo=lausanne&pages=#{i}"
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
-
-  address_array = []
-
   html_doc.search(".tel-address").each do |element|
     address_array.push(element.text)
-    address_array = address_array.uniq
   end
 end
 
+address_array = address_array.uniq
+
 puts address_array
 puts "Address created!"
-
 puts "Creating ties..."
 
 users = [user_1, user_2, user_3]
@@ -74,7 +69,7 @@ descriptions = [desc_1, desc_2, desc_3]
 # path of images (relative)
 images_path = File.expand_path(".", Dir.pwd) + "/app/assets/images/one_hundred_ties"
 
-Dir.glob(images_path + "/*").each do |f|
+Dir.glob(images_path + "/*").each_with_index do |f, index|
   filename_wo_extension = File.basename(f, ".jpg")
   filename = File.basename(f)
   filepath = File.path(f)
@@ -83,7 +78,8 @@ Dir.glob(images_path + "/*").each do |f|
   user_id = users.shuffle.first.id
   price = prices.shuffle.first
   description = descriptions.sample
-  address = address_array.sample
+  address = address_array[index]
+  puts address
 
   tie = Tie.new(user_id: user_id, description: description, price_per_day: price, name: filename_wo_extension, address: address)
   tie.picture.attach(io: file, filename: filename, content_type: "image/jpg")
