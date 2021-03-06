@@ -11,7 +11,7 @@
       <%= cl_image_tag(@tie.picture.key, height: 250) %>
       <div class="card-trip-infos">
         <div>
-          <h2><%= @tie.name %></h2>
+          <h3><%= @tie.name %></h3>
           <br>
           <p><%= @tie.description %></p>
         </div>
@@ -29,8 +29,37 @@
         </div>
       </div>
       <!-- map end  -->
+
+      <!-- table start  -->
+      <div class="card-table">
+        <h3 class="mb-4 mt-4">Booking's dates</h3>
+        <% if @tie.bookings.blank? %>
+          <p><strong>No bookings yet... Add new book ?</strong></p>
+          <% else %>
+          <table class="table">
+            <thead>
+              <tr>
+                <!-- <th scope="col">Who</th> -->
+                <th scope="col">Booked from date</th>
+                <th scope="col">To date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @tie.bookings.each do |booking| %>
+              <tr>
+                <!-- <th scope="row"><%= cl_image_tag current_user.profile_image.key, class: "card-trip-user avatar-square" %></th> -->
+                <td><%= booking.start_date %></td>
+                <td><%= booking.end_date %></td>
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <!-- table end  -->
+
       <div class="card-date">
-        <%= render "partial/form_new_book", booking: @booking %>
+        <%= render 'partial/form_new_book', booking: @booking %>
       </div>
     </div>
   </div>
@@ -39,3 +68,5 @@
     <%= link_to "Back", :back, class: "btn btn-primary float-right" %>
   </div>
 </div>
+
+
