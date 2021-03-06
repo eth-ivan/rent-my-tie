@@ -1,12 +1,12 @@
 <%= simple_form_for([ @tie, @booking ], remote: true) do |f| %>
-  <h2>Book a date : </h2>
+  <h3>Book a date : </h3>
   <br>
   <div class="row">
     <div class="col-md-4">
       <%= f.input :start_date, as: :string, required: false, label: false, placeholder: "Start date", input_html: {class: "datepicker"} %>
     </div>
     <div class="col-md-4">
-      <%= f.input :start_date, as: :string, required: false, label: false, placeholder: "End date", input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, label: false, placeholder: "End date", input_html: {class: "datepicker"} %>
     </div>
     <div class="ml-5">
       <%= f.button :submit, "Book now", class: "btn btn-primary" %>

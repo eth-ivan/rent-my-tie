@@ -29,17 +29,24 @@
         </div>
       </div>
       <!-- map end  -->
-      <div class="card-date">
-
+      <div>
+        <hr>
         <% if @tie.bookings.blank? %>
           <p>No bookings yet... Add new book ?</p>
           <% else %>
-          <p>Booked at dates :</p>
-            <% @tie.bookings.each do |booking| %>
-              <%= booking.start_date %>
-              <%= booking.end_date %>
-            <% end %>
-          <% end %>
+          <h4>Booked at dates :</h4>
+            <ul>
+              <% @tie.bookings.each do |booking| %>
+                <li>
+                  <span>Booked from : <%= booking.start_date %></span>
+                  <span class="ml-5">To : <%= booking.end_date %></span>
+                </li>
+              <% end %>
+            </ul>
+        <% end %>
+        <hr>
+      </div>
+      <div class="card-date">
         <%= render 'partial/form_new_book', booking: @booking %>
       </div>
     </div>
