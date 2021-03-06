@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_url 'ties.jpg' %>');">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_url "ties.jpg" %>');">
   <div class="container">
     <h1 class="text-center"><em>"The <%= @tie.name %> tie"</em></h1>
   </div>
@@ -16,16 +16,26 @@
           <p><%= @tie.description %></p>
         </div>
         <div>
-          <%= cl_image_tag @tie.user.profile_image.key, class:"card-trip-user avatar-square" %>
+          <%= cl_image_tag @tie.user.profile_image.key, class: "card-trip-user avatar-square" %>
           <h2>$<%= @tie.price_per_day %> /day</h2>
         </div>
       </div>
+      <!-- map start  -->
+      <div class="card-map">
+        <div id="map-show"
+          style=" height: 300px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+      <!-- map end  -->
       <div class="card-date">
-        <%= render 'partial/form_new_book', booking: @booking %>
+        <%= render "partial/form_new_book", booking: @booking %>
       </div>
     </div>
   </div>
+
   <div>
-    <%= link_to 'Back to all ties', :back, class: "btn btn-primary float-right"%>
+    <%= link_to "Back", :back, class: "btn btn-primary float-right" %>
   </div>
 </div>
