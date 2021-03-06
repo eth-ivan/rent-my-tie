@@ -29,8 +29,25 @@
         </div>
       </div>
       <!-- map end  -->
+      <div>
+        <hr>
+        <% if @tie.bookings.blank? %>
+          <p>No bookings yet... Add new book ?</p>
+          <% else %>
+          <h4>Booked at dates :</h4>
+            <ul>
+              <% @tie.bookings.each do |booking| %>
+                <li>
+                  <span>Booked from : <%= booking.start_date %></span>
+                  <span class="ml-5">To : <%= booking.end_date %></span>
+                </li>
+              <% end %>
+            </ul>
+        <% end %>
+        <hr>
+      </div>
       <div class="card-date">
-        <%= render "partial/form_new_book", booking: @booking %>
+        <%= render 'partial/form_new_book', booking: @booking %>
       </div>
     </div>
   </div>
@@ -39,3 +56,5 @@
     <%= link_to "Back", :back, class: "btn btn-primary float-right" %>
   </div>
 </div>
+
+

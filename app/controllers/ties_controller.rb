@@ -10,6 +10,7 @@ class TiesController < ApplicationController
 
   def show
     @tie = Tie.find(params[:id])
+    @booking = Booking.new
     @markers =
       {
         lat: @tie.latitude,
