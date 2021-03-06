@@ -1,11 +1,8 @@
 // Specific CSS for your home-page
 #page-container {
   position: relative;
-  min-height: 100%;
-}
-
-#content-wrap {
-  padding-bottom: 5rem;    /* Footer height */
+  min-height: calc(100vh - 5rem - 80px);
+  padding-bottom: 5rem;
 }
 
 .search-bar {

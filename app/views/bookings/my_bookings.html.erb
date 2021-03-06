@@ -1,0 +1,48 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_url "bookings.jpg" %>');">
+  <div class="container">
+    <h1 class="text-center"><em>"All your booked ties"</em></h1>
+  </div>
+</div>
+
+<div class="container col-md-8">
+<!-- table start  -->
+    <div class="bookings-table">
+      <h3 class="mb-4 mt-4">Bookings dates</h3>
+      <% if current_user.bookings.blank? %>
+        <p><strong>No bookings yet... Add new book ?</strong></p>
+        <% else %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Picture</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Booked from date</th>
+              <th scope="col">To date</th>
+              <th scope="col">Price</th>
+              <th scope="col">Option</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% current_user.bookings.each do |booking| %>
+              <%= link_to booking.tie do  %>
+                <tr>
+                  <th scope="row"><%= cl_image_tag booking.tie.picture.key, class: "card-trip-user avatar-square" %></th>
+                  <td><%= booking.tie.name %></td>
+                  <td width="300" class="table-description"><%= booking.tie.description %></td>
+                  <td><%= booking.start_date.strftime("%d.%m.%Y") %></td>
+                  <td><%= booking.end_date.strftime("%d.%m.%Y") %></td>
+                  <td>$ <%= booking.tie.price_per_day %></td>
+                  <td><%= link_to ty_booking_path(booking.tie, booking), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <i class="fa fa-trash-o"></i>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+    <!-- table end  -->
+</div>

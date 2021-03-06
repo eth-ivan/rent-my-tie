@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
 
+  def my_bookings
+    @bookings = Booking.where(user_id: params[:user_id])
+  end
+
   # def new
   #   @booking = Booking.new
   # end
@@ -17,9 +21,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    Booking.find(params[:id]).destroy
+    flash[:success] = "Reservacion eliminada"
+    redirect_to my_bookings_path
+  end
+
+
   private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
+
 end
