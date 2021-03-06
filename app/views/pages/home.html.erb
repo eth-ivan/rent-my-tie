@@ -1,11 +1,11 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_url 'ties.jpg' %>');">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_url "ties.jpg" %>');">
   <div class="container">
     <h1>The first platform where you can rent your tie !</h1>
     <p>Change your life and rent the tie you like.</p>
     <div class="row search-bar">
       <form class="form-inline my-2 my-lg-0 col-10" action="/ties">
-        <input class="form-control col-8" type="search" name="query" value="<%= params[:query] %>" placeholder="Search a tie" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0 text-white" id="margin-button" type="submit">Search a tie by color of location</button>
+        <input class="form-control col-8" type="search" name="query" value="<%= params[:query] %>" placeholder="Search a tie by color of location" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0 text-white" id="margin-button" type="submit">Search</button>
       </form>
     </div>
   </div>
@@ -29,11 +29,11 @@
 
             <div class="card-trip-infos">
               <div>
-                <h2><%=tie.name%></h2>
-                <p><%= tie.description.truncate(25, separator: ' ') %></p>
+                <h2><%= tie.name %></h2>
+                <p><%= tie.description.truncate(25, separator: " ") %></p>
               </div>
               <h2 class="card-trip-pricing">$<%= tie.price_per_day %> /day</h2>
-              <%= cl_image_tag tie.user.profile_image.key, class:"card-trip-user avatar-square" %>
+              <%= cl_image_tag tie.user.profile_image.key, class: "card-trip-user avatar-square" %>
             </div>
           </div>
         </div>
