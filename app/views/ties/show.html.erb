@@ -29,23 +29,37 @@
         </div>
       </div>
       <!-- map end  -->
-      <div>
+
+      <!-- table start  -->
+      <div class="card-table">
         <hr>
+        <h3>Booking's dates :</h3>
         <% if @tie.bookings.blank? %>
-          <p>No bookings yet... Add new book ?</p>
+          <p><strong>No bookings yet... Add new book ?</strong></p>
           <% else %>
-          <h4>Booked at dates :</h4>
-            <ul>
+          <table class="table">
+            <thead>
+              <tr>
+                <!-- <th scope="col">Who</th> -->
+                <th scope="col">Booked from date</th>
+                <th scope="col">To date</th>
+              </tr>
+            </thead>
+            <tbody>
               <% @tie.bookings.each do |booking| %>
-                <li>
-                  <span>Booked from : <%= booking.start_date %></span>
-                  <span class="ml-5">To : <%= booking.end_date %></span>
-                </li>
+              <tr>
+                <!-- <th scope="row"><%= cl_image_tag current_user.profile_image.key, class: "card-trip-user avatar-square" %></th> -->
+                <td><%= booking.start_date %></td>
+                <td><%= booking.end_date %></td>
+              </tr>
               <% end %>
-            </ul>
-        <% end %>
-        <hr>
-      </div>
+              <% end %>
+            </tbody>
+          </table>
+          <hr>
+        </div>
+      <!-- table end  -->
+
       <div class="card-date">
         <%= render 'partial/form_new_book', booking: @booking %>
       </div>
