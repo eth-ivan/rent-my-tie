@@ -11,7 +11,7 @@
       <%= cl_image_tag(@tie.picture.key, height: 250) %>
       <div class="card-trip-infos">
         <div>
-          <h2><%= @tie.name %></h2>
+          <h3><%= @tie.name %></h3>
           <br>
           <p><%= @tie.description %></p>
         </div>
@@ -32,8 +32,7 @@
 
       <!-- table start  -->
       <div class="card-table">
-        <hr>
-        <h3>Booking's dates :</h3>
+        <h3 class="mb-4 mt-4">Booking's dates</h3>
         <% if @tie.bookings.blank? %>
           <p><strong>No bookings yet... Add new book ?</strong></p>
           <% else %>
@@ -56,7 +55,6 @@
               <% end %>
             </tbody>
           </table>
-          <hr>
         </div>
       <!-- table end  -->
 
