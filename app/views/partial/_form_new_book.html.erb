@@ -1,5 +1,5 @@
-<%= simple_form_for :search, method: "get" do |f| %>
-  <h2>Booking a date : </h2>
+<%= simple_form_for([ @tie, @booking ], remote: true) do |f| %>
+  <h2>Book a date : </h2>
   <br>
   <div class="row">
     <div class="col-md-4">

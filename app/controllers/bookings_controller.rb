@@ -1,16 +1,15 @@
 class BookingsController < ApplicationController
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
+    @tie = Tie.find(params[:ty_id])
+    @user = current_user # temporary, to be able to save the tie
     @booking = Booking.new(booking_params)
-    @tie.user = current_user # temporary, to be able to save the tie
+    @booking.tie = @tie
+    @booking.user = @user
     if @booking.save
-      redirect_to @tie
+      redirect_to tie_path(@tie)
     else
-      render :new # render method is necessary so that simple form displays error messages
+      render "ties/show" # render method is necessary so that simple form displays error messages
     end
   end
 

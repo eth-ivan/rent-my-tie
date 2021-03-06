@@ -21,6 +21,15 @@
         </div>
       </div>
       <div class="card-date">
+        <% if @tie.bookings.blank? %>
+          <p>No bookings yet... Add new book ?</p>
+          <% else %>
+          <p>Booked at dates :</p>
+            <% @tie.bookings.each do |booking| %>
+              <%= booking.start_date %>
+              <%= booking.end_date %>
+            <% end %>
+          <% end %>
         <%= render 'partial/form_new_book', booking: @booking %>
       </div>
     </div>
@@ -29,3 +38,5 @@
     <%= link_to 'Back to all ties', :back, class: "btn btn-primary float-right"%>
   </div>
 </div>
+
+
