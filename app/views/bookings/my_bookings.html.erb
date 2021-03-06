@@ -33,9 +33,7 @@
                   <td><%= booking.start_date.strftime("%d.%m.%Y") %></td>
                   <td><%= booking.end_date.strftime("%d.%m.%Y") %></td>
                   <td>$ <%= booking.tie.price_per_day %></td>
-                  <td><%= link_to ty_booking_path(booking.tie, booking), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                    <i class="fa fa-trash-o"></i>
-                    <% end %>
+                  <td><%= link_to "Unbook ?", ty_booking_path(booking.tie, booking), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
                   </td>
                 </tr>
               <% end %>

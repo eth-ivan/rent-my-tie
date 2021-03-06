@@ -1,8 +1,11 @@
-<!-- index.html.erb -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_url "lot-ties.jpg" %>');">
+  <div class="container">
+    <h1><em>We have a tie for everyone!</em></h1>
+  </div>
+</div>
 
-<div class="container pt-5">
-  <h1>We have a tie for everyone!</h1>
-  <div class="row mt-5">
+<div class="container mt-n5">
+  <div class="row">
 
     <% @ties.each do |tie| %>
       <div class="col-xs-12 col-md-6 col-lg-4">

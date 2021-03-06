@@ -48,8 +48,8 @@
               <% @tie.bookings.each do |booking| %>
               <tr>
                 <!-- <th scope="row"><%= cl_image_tag current_user.profile_image.key, class: "card-trip-user avatar-square" %></th> -->
-                <td><%= booking.start_date %></td>
-                <td><%= booking.end_date %></td>
+                <td><%= booking.start_date.strftime("%d.%m.%Y") %></td>
+                <td><%= booking.end_date.strftime("%d.%m.%Y") %></td>
               </tr>
               <% end %>
               <% end %>

@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.tie = @tie
     @booking.user_id = @user.id
     if @booking.save
-      redirect_to ty_path(@tie)
+      redirect_to my_bookings_path
     else
       render "ties/show" # render method is necessary so that simple form displays error messages
     end
